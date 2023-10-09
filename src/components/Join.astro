@@ -1,0 +1,45 @@
+---
+import lovePaintedHand from "../assets/image/love-painted-hand.png";
+import { Image } from "astro:assets";
+---
+
+<div class="join">
+  <Image class={"left"} src={lovePaintedHand} alt={"love painted hand"} />
+  <div class="right">
+    <h2 class="title">Join us in creating a brighter future for children everywhere</h2>
+    <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+    <div class="action">
+      <button class="btn">Donate Now</button>
+      <button class="btn-secondary">Learn More</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .action {
+    margin-top: 24px;
+    display: flex;
+    width: 75%;
+    gap: 16px;
+  }
+  .join {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 24px;
+    gap: 48px;
+  }
+  .left {
+    width: 100%;
+    height: 100%;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  @media screen and (min-width: 768px) {
+    .join {
+      flex-direction: row;
+    }
+  }
+</style>

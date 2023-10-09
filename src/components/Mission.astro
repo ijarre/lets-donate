@@ -1,0 +1,72 @@
+---
+import lovePaintedHand from "../assets/image/love-painted-hand.png";
+import chevronRight from "../assets/icon/chevron-right.svg";
+import { Image } from "astro:assets";
+---
+
+<div class="mission">
+  <div class="left">
+    <h2 class="title">Our Mission</h2>
+    <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+    <div class="action">
+      <button class="btn-unstyled learn-more">
+        <span>Learn more</span>
+        <Image class={"chevron-right"} src={chevronRight} alt={"chevron"} />
+      </button>
+    </div>
+  </div>
+  <iframe
+    class="right"
+    src="https://www.youtube.com/embed/DjvslRtCA5I?si=o67dq4cfn6aBVEGi&controls=0"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+
+<style>
+  .learn-more {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 0;
+    width: fit-content;
+  }
+  .action {
+    margin-top: 24px;
+    display: flex;
+
+    gap: 16px;
+  }
+  .mission {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 24px;
+    gap: 48px;
+  }
+  .right {
+    width: 100%;
+    height: 100%;
+    min-width: 380px;
+    min-height: 430px;
+  }
+
+  .chevron-right {
+    width: 13px;
+    height: 13px;
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  @media screen and (min-width: 768px) {
+    .mission {
+      flex-direction: row;
+    }
+    .right {
+      min-width: 616px;
+      min-height: 640px;
+    }
+  }
+</style>

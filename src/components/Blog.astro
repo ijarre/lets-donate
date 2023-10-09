@@ -1,0 +1,143 @@
+---
+import image1 from "../assets/image/blog-image-1.png";
+import image2 from "../assets/image/blog-image-2.png";
+import image3 from "../assets/image/blog-image-3.png";
+
+import chevronRight from "../assets/icon/chevron-right.svg";
+import { Image } from "astro:assets";
+
+type HelpCard = {
+  image: ImageMetadata;
+  title: string;
+  subtitle: string;
+  category: string;
+};
+
+const cards: HelpCard[] = [
+  {
+    image: image1,
+    title: "Education Sponsorship",
+    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+    category: "category",
+  },
+  {
+    image: image2,
+    title: "Education Sponsorship",
+    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+    category: "category",
+  },
+  {
+    image: image3,
+    title: "Education Sponsorship",
+    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+    category: "category",
+  },
+];
+---
+
+<div class="blog">
+  <div class="text">
+    <p class="section-name">Blog</p>
+    <h2 class="title section-title">Our blog</h2>
+    <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="cards">
+    {
+      cards.map((c) => (
+        <div class="card">
+          <Image class="card-icon" src={c.image} alt={c.title} />
+          <div class="card-text">
+            <p class="card-category">{c.category}</p>
+            <h3 class="card-title">{c.title}</h3>
+            <p class="card-subtitle">{c.subtitle}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .section-name {
+    color: black;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 600;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+  .card {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+    display: inline-flex;
+  }
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card-title {
+    color: black;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 600;
+    line-height: 30px;
+    word-wrap: break-word;
+  }
+  .card-category {
+    color: black;
+    font-size: 14px;
+    font-family: Roboto;
+    font-weight: 600;
+    line-height: 21px;
+    word-wrap: break-word;
+  }
+
+  .blog {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 24px;
+    gap: 48px;
+  }
+  .text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .section-title {
+    line-height: 67.2px;
+    word-wrap: break-word;
+    text-align: center;
+  }
+  .chevron-right {
+    width: 13px;
+    height: 13px;
+  }
+  .card-action {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    width: fit-content;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  @media screen and (min-width: 768px) {
+    .mission {
+      flex-direction: row;
+    }
+    .cards {
+      flex-direction: row;
+    }
+    .section-title {
+      font-size: 56px;
+    }
+  }
+</style>

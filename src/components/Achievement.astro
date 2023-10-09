@@ -1,0 +1,70 @@
+---
+const achievements = [
+  { title: "+200M", subtitle: "Humans Impacted" },
+  { title: "50K", subtitle: "Collaborators" },
+  { title: "370k", subtitle: "Assisted Communities" },
+  { title: "100+", subtitle: "Donations" },
+];
+---
+
+<div class="achievement">
+  <div class="top">
+    <h2 class="title">Our Achivements</h2>
+    <p class="subtitle center-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+    </p>
+  </div>
+  <div class="achievement-list">
+    {
+      achievements.map((ac) => (
+        <div class="list-item">
+          <p class="list-title">{ac.title}</p>
+          <p class="list-subtitle">{ac.subtitle}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .achievement {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 24px;
+    gap: 32px;
+  }
+  .center-text {
+    text-align: center;
+  }
+  .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .achievement-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+  }
+  @media screen and (min-width: 768px) {
+    .achievement-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .list-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  @media screen and (min-width: 768px) {
+    .list-title {
+      font-size: 40px;
+    }
+  }
+</style>

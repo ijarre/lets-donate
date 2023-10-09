@@ -1,0 +1,136 @@
+---
+import Navbar from "../components/Navbar.astro";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+  }
+  html {
+    font-family: Roboto, sans-serif;
+    background-size: 224px;
+  }
+  body {
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    outline: 0;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+  .btn {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    line-height: 24px;
+  }
+  .btn:hover , .btn-secondary:hover{
+    cursor: pointer;
+    scale: 1.01;
+  }
+  .btn-unstyled:hover{
+    cursor: pointer;
+  }
+  .btn-secondary {
+    width: 100%;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    padding: 8px 20px;
+    border-radius: 5px;
+    line-height: 24px;
+  }
+  .btn-unstyled {
+    width:100%;
+    background-color: transparent;
+    padding: 8px 20px;
+    border-radius: 5px;
+    line-height: 24px;
+    border:none;
+  }
+  .text-subtitle {
+    font: 18px;
+    font-weight: 700;
+  }
+  .title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .subtitle {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  @media screen and (min-width:768px) {
+    .title{
+      font-size:48px
+      line-height:57px;
+    }
+  }
+</style>

@@ -1,0 +1,151 @@
+---
+import avatar1 from "../assets/image/avatar-1.png";
+import avatar2 from "../assets/image/avatar-2.png";
+import star from "../assets/icon/star.svg";
+
+import { Image } from "astro:assets";
+
+type TestimonialCard = {
+  stars: number;
+  name: string;
+  review: string;
+  avatar: ImageMetadata;
+};
+
+const cards: TestimonialCard[] = [
+  {
+    avatar: avatar1,
+    stars: 5,
+    name: "Name Surname",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+  },
+  {
+    avatar: avatar2,
+    stars: 4,
+    name: "Name Surname",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+  },
+];
+---
+
+<div class="testimonial">
+  <div class="text">
+    <h2 class="title section-title">Hear from our volunteers about their experience</h2>
+    <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="cards">
+    {
+      cards.map((c) => (
+        <div class="card">
+          <div class="stars">
+            {Array.from({ length: c.stars }).map(() => (
+              <Image src={star} alt={"star"} />
+            ))}
+          </div>
+          <p class="card-testimony">{`"${c.review}"`}</p>
+          <div class="card-profile">
+            <Image class="profile-avatar" alt={c.name} src={c.avatar} />
+            <span class="profile-name">{c.name}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .section-name {
+    color: black;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 600;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+  .card-profile {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .profile-name {
+    color: black;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 600;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+  .card {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 32px;
+    display: inline-flex;
+  }
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card-testimony {
+    color: #676767;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 700;
+    line-height: 28px;
+    word-wrap: break-word;
+  }
+  .card-category {
+    color: black;
+    font-size: 14px;
+    font-family: Roboto;
+    font-weight: 600;
+    line-height: 21px;
+    word-wrap: break-word;
+  }
+
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 24px;
+    gap: 48px;
+  }
+  .text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .section-title {
+    line-height: 40px;
+    word-wrap: break-word;
+    text-align: center;
+  }
+  .chevron-right {
+    width: 13px;
+    height: 13px;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .stars {
+    display: flex;
+    gap: 1px;
+  }
+  @media screen and (min-width: 768px) {
+    .mission {
+      flex-direction: row;
+    }
+    .cards {
+      flex-direction: row;
+    }
+    .section-title {
+      font-size: 56px;
+      line-height: 57px;
+    }
+  }
+</style>
