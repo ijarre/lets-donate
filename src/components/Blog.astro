@@ -3,17 +3,16 @@ import image1 from "../assets/image/blog-image-1.png";
 import image2 from "../assets/image/blog-image-2.png";
 import image3 from "../assets/image/blog-image-3.png";
 
-import chevronRight from "../assets/icon/chevron-right.svg";
 import { Image } from "astro:assets";
 
-type HelpCard = {
+type BlogCard = {
   image: ImageMetadata;
   title: string;
   subtitle: string;
   category: string;
 };
 
-const cards: HelpCard[] = [
+const cards: BlogCard[] = [
   {
     image: image1,
     title: "Education Sponsorship",
